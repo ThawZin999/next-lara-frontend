@@ -29,7 +29,7 @@ const Dropdown = ({
             break
     }
 
-    const [open, setOpen] = useState(false)
+    // const [open, setOpen] = useState(false)
 
     return (
         <Menu as="div" className="relative">
