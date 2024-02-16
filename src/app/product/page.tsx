@@ -37,7 +37,7 @@ const ProductPage = () => {
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-300">
-                                    {products.map((p, index) => (
+                                    {products.map(p => (
                                         <tr
                                             key={p?.id}
                                             className="whitespace-nowrap">
