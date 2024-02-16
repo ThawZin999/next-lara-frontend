@@ -1,12 +1,26 @@
 import '@/app/global.css'
+import { cn } from '@/lib/utils'
+import { Inter as FontSans } from 'next/font/google'
 
 export const metadata = {
-    title: 'Laravel',
+    title: 'Next-Lara',
 }
+
+export const fontSans = FontSans({
+    subsets: ['latin'],
+    variable: '--font-sans',
+})
+
 const RootLayout = ({ children }) => {
     return (
         <html lang="en">
-            <body className="antialiased">{children}</body>
+            <body
+                className={cn(
+                    'min-h-screen bg-background font-sans antialiased',
+                    fontSans.variable,
+                )}>
+                {children}
+            </body>
         </html>
     )
 }

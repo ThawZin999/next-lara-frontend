@@ -1,6 +1,16 @@
 'use client'
+import { Button } from '@/components/ui/button'
 import axios from '../../lib/axios'
 import React, { useEffect, useState } from 'react'
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from '@/components/ui/table'
 
 const ProductPage = () => {
     const [products, setProducts] = useState([])
@@ -18,6 +28,29 @@ const ProductPage = () => {
 
     return (
         <>
+            <div className="container flex justify-center mx-auto mt-3">
+                <div className="flex flex-col">
+                    <Table>
+                        <TableCaption>Product Table</TableCaption>
+                        <TableHeader>
+                            <TableRow className="bg-blue-200">
+                                <TableHead>Name</TableHead>
+                                <TableHead>Buy Price</TableHead>
+                                <TableHead>Sell Price</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {products.map(p => (
+                                <TableRow key={p.id}>
+                                    <TableCell>{p?.name}</TableCell>
+                                    <TableCell>{p?.buyPrice}</TableCell>
+                                    <TableCell>{p?.sellPrice}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </div>
+            </div>
             <div className="container flex justify-center mx-auto mt-3">
                 <div className="flex flex-col">
                     <div className="w-full">
@@ -60,6 +93,9 @@ const ProductPage = () => {
                                     ))}
                                 </tbody>
                             </table>
+                            <Button size="sm" variant="destructive">
+                                Add
+                            </Button>
                         </div>
                     </div>
                 </div>
